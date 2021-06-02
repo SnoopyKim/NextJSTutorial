@@ -4,9 +4,10 @@ import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from "../lib/posts";
 import Link from 'next/link';
 import Date from '../components/date';
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
 // For Static Generation
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async context => {
   const allPostsData = getSortedPostsData()
   return {
     props: {
@@ -17,7 +18,7 @@ export async function getStaticProps() {
 }
 
 // For Server-side Rendering
-// export async function getServerSideProps(context){
+// export const getServerSideProps: GetServerSideProps = async context => {
 //   return {
 //     props: {
 //       // props for your component
@@ -32,7 +33,7 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hello, I'm <b>Snoopy</b>. I'm a software engineer!</p>
+        <p>Hello, I'm <b>SnoopyKim</b>. I'm a software engineer!</p>
         <p>
           (This is a sample website - you'll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
